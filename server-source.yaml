@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server-source
+  namespace: criu-svc-test
+  labels:
+    app: criu-server
+    migration-role: source
+spec:
+  containers:
+    - name: server
+      image: python:3.12-alpine
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+      command:
+        - sh
+        - -c
+        - |
+          cat > /server.py <<'PY'
+          import http.server
+          import socketserver
+          import os
+          import time
+
+          START = time.time()
+          POD_NAME = os.environ.get("POD_NAME", "unknown")
+          POD_IP = os.environ.get("POD_IP", "unknown")
+          ROLE = os.environ.get("ROLE", "source")
+
+          class Handler(http.server.BaseHTTPRequestHandler):
+              def do_GET(self):
+                  if self.path == "/ready":
+                      self.send_response(200)
+                      self.end_headers()
+                      self.wfile.write(b"ready\n")
+                      return
+
+                  self.send_response(200)
+                  self.end_headers()
+                  body = (
+                      f"pod={POD_NAME}\n"
+                      f"ip={POD_IP}\n"
+                      f"role={ROLE}\n"
+                      f"uptime={time.time() - START:.3f}\n"
+                  )
+                  self.wfile.write(body.encode())
+
+              def log_message(self, fmt, *args):
+                  return
+
+          with socketserver.TCPServer(("0.0.0.0", 8080), Handler) as httpd:
+              httpd.serve_forever()
+          PY
+
+          python /server.py
+      env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: ROLE
+          value: source
+      readinessProbe:
+        httpGet:
+          path: /ready
+          port: 8080
+        initialDelaySeconds: 1
+        periodSeconds: 1
+        failureThreshold: 1
+      livenessProbe:
+        httpGet:
+          path: /ready
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 5

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server-restore
+  namespace: criu-svc-test
+  labels:
+    app: criu-server
+    migration-role: restore
+spec:
+  containers:
+    - name: server
+      image: localhost/checkpoint-server-source:latest
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+      env:
+        - name: ROLE
+          value: restore
+      readinessProbe:
+        httpGet:
+          path: /ready
+          port: 8080
+        initialDelaySeconds: 1
+        periodSeconds: 1
+        failureThreshold: 1
+      livenessProbe:
+        httpGet:
+          path: /ready
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 5

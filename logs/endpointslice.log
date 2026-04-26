@@ -1,0 +1,614 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T10:50:16Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 3
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13983644"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.77
+  conditions:
+    ready: false
+    serving: false
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 89f5d262-bfd7-41cc-8aea-80dd8145f559
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T11:23:24Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 4
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13988265"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.77
+  conditions:
+    ready: false
+    serving: false
+    terminating: true
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 89f5d262-bfd7-41cc-8aea-80dd8145f559
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 5
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13988339"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 6
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13988352"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.104
+  conditions:
+    ready: false
+    serving: false
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 7ac39cc5-f989-4700-a6dd-7512e98be184
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T11:31:09Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 7
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13989381"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.104
+  conditions:
+    ready: false
+    serving: false
+    terminating: true
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 7ac39cc5-f989-4700-a6dd-7512e98be184
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 8
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13989840"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 9
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13989851"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.65
+  conditions:
+    ready: false
+    serving: false
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 03a0d5d4-a812-4487-bb4d-b13118cebf23
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T11:34:34Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 10
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13989925"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.65
+  conditions:
+    ready: false
+    serving: false
+    terminating: true
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 03a0d5d4-a812-4487-bb4d-b13118cebf23
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 11
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13990219"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 12
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13990232"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.94
+  conditions:
+    ready: false
+    serving: false
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 0d52488f-f2b4-4ceb-a90a-f051b5377668
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T11:36:36Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 13
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13990257"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.96
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-source
+    namespace: criu-svc-test
+    uid: 14142fd3-e117-4643-9c0f-7f6a8362135f
+- addresses:
+  - 192.168.131.94
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 0d52488f-f2b4-4ceb-a90a-f051b5377668
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2026-04-26T11:36:37Z"
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 14
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13990260"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP
+---
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 192.168.131.94
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: ubuntu-2204
+  targetRef:
+    kind: Pod
+    name: server-restore
+    namespace: criu-svc-test
+    uid: 0d52488f-f2b4-4ceb-a90a-f051b5377668
+kind: EndpointSlice
+metadata:
+  creationTimestamp: "2026-04-26T10:50:03Z"
+  generateName: criu-server-svc-
+  generation: 15
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: criu-server-svc
+  name: criu-server-svc-jglkf
+  namespace: criu-svc-test
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: criu-server-svc
+    uid: ca60960b-1d25-4173-80d2-01d563d12b4b
+  resourceVersion: "13990488"
+  uid: 8495a224-4fd4-4be9-968b-14e69c335023
+ports:
+- name: http
+  port: 8080
+  protocol: TCP

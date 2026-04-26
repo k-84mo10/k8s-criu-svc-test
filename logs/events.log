@@ -1,0 +1,121 @@
+LAST SEEN   TYPE     REASON      OBJECT              MESSAGE
+30m         Normal   Pulling     pod/server-source   Pulling image "python:3.12-alpine"
+30m         Normal   Scheduled   pod/server-source   Successfully assigned criu-svc-test/server-source to ubuntu-2204
+30m         Normal   Started     pod/server-source   Started container server
+30m         Normal   Created     pod/server-source   Created container: server
+30m         Normal   Pulled      pod/server-source   Successfully pulled image "python:3.12-alpine" in 4.186s (4.186s including waiting). Image size: 18081996 bytes.
+30m         Normal   Pulling     pod/client          Pulling image "curlimages/curl:8.6.0"
+30m         Normal   Scheduled   pod/client          Successfully assigned criu-svc-test/client to ubuntu-2204
+30m         Normal   Pulled      pod/client          Successfully pulled image "curlimages/curl:8.6.0" in 3.26s (3.26s including waiting). Image size: 7535333 bytes.
+30m         Normal   Created     pod/client          Created container: client
+30m         Normal   Started     pod/client          Started container client
+19m         Normal   Killing     pod/client          Stopping container client
+18m         Normal   Scheduled   pod/client          Successfully assigned criu-svc-test/client to ubuntu-2204
+18m         Normal   Started     pod/client          Started container client
+18m         Normal   Created     pod/client          Created container: client
+18m         Normal   Pulled      pod/client          Container image "curlimages/curl:8.6.0" already present on machine
+0s          Normal   Scheduled   pod/server-restore   Successfully assigned criu-svc-test/server-restore to ubuntu-2204
+0s          Normal   Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Scheduled   pod/server-restore   Successfully assigned criu-svc-test/server-restore to ubuntu-2204
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    Scheduled   pod/server-restore   Successfully assigned criu-svc-test/server-restore to ubuntu-2204
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Pulling     pod/server-restore   Pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Failed to pull image "registry.example.com/criu/server-checkpoint:latest": failed to pull and unpack image "registry.example.com/criu/server-checkpoint:latest": failed to resolve image: failed to do request: Head "https://registry.example.com/v2/criu/server-checkpoint/manifests/latest": dial tcp: lookup registry.example.com on 127.0.0.53:53: no such host
+0s          Warning   Failed      pod/server-restore   Error: ErrImagePull
+0s          Normal    BackOff     pod/server-restore   Back-off pulling image "registry.example.com/criu/server-checkpoint:latest"
+0s          Warning   Failed      pod/server-restore   Error: ImagePullBackOff
+0s          Normal    Scheduled   pod/server-restore   Successfully assigned criu-svc-test/server-restore to ubuntu-2204
+0s          Normal    Pulled      pod/server-restore   Container image "localhost/checkpoint-server-source:latest" already present on machine
+0s          Normal    Created     pod/server-restore   Created container: server
+0s          Normal    Started     pod/server-restore   Started container server
+0s          Normal    Scheduled   pod/curl-test        Successfully assigned criu-svc-test/curl-test to ubuntu-2204
+0s          Normal    Pulled      pod/curl-test        Container image "curlimages/curl:8.6.0" already present on machine
+0s          Normal    Created     pod/curl-test        Created container: curl-test
+0s          Normal    Started     pod/curl-test        Started container curl-test
+0s          Normal    Scheduled   pod/curl-test        Successfully assigned criu-svc-test/curl-test to ubuntu-2204
+0s          Normal    Pulled      pod/curl-test        Container image "curlimages/curl:8.6.0" already present on machine
+0s          Normal    Created     pod/curl-test        Created container: curl-test
+0s          Normal    Started     pod/curl-test        Started container curl-test
+0s          Normal    Killing     pod/server-source    Stopping container server
+0s          Normal    Scheduled   pod/curl-test        Successfully assigned criu-svc-test/curl-test to ubuntu-2204
+0s          Normal    Pulled      pod/curl-test        Container image "curlimages/curl:8.6.0" already present on machine
+0s          Normal    Created     pod/curl-test        Created container: curl-test
+0s          Normal    Started     pod/curl-test        Started container curl-test
+60m         Normal    Scheduled   pod/client           Successfully assigned criu-svc-test/client to ubuntu-2204
+61m         Normal    Scheduled   pod/server-source    Successfully assigned criu-svc-test/server-source to ubuntu-2204
+60m         Normal    Pulling     pod/client           Pulling image "curlimages/curl:8.6.0"
+60m         Normal    Pulled      pod/client           Successfully pulled image "curlimages/curl:8.6.0" in 3.26s (3.26s including waiting). Image size: 7535333 bytes.
+60m         Normal    Created     pod/client           Created container: client
+60m         Normal    Started     pod/client           Started container client
+61m         Normal    Pulling     pod/server-source    Pulling image "python:3.12-alpine"
+60m         Normal    Pulled      pod/server-source    Successfully pulled image "python:3.12-alpine" in 4.186s (4.186s including waiting). Image size: 18081996 bytes.
+60m         Normal    Created     pod/server-source    Created container: server
+60m         Normal    Started     pod/server-source    Started container server
