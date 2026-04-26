@@ -239,6 +239,72 @@ kubectl delete namespace $NAMESPACE
 
 ---
 
+## 自動計測: migration bottleneck 実験
+
+研究課題として残る各区間をまとめて測る場合は、次のスクリプトを使います。
+
+```bash
+./scripts/measure-migration.sh --iterations 5
+```
+
+デフォルトでは各 iteration の前に `$NAMESPACE` を削除して作り直し、次の流れを自動で実行します。
+
+1. 実験用リソースを作成し、source/client Pod の Ready を待つ
+2. source Pod から `app` label を外して Service から drain
+3. EndpointSlice から source Pod の ready endpoint が消えるまで待つ
+4. checkpoint API を成功するまでリトライ
+5. checkpoint archive から restore image を作成し、containerd に import
+6. restore Pod を作成し、Pod Ready / EndpointSlice ready=true / Service 経由疎通を観測
+
+結果は `logs/measurements/migration-measurements-<run_id>.csv` に保存されます。主な列は次の通りです。
+
+| 列 | 意味 |
+| --- | --- |
+| `label_to_endpoint_removed_ms` | Service から外す操作を開始してから、EndpointSlice 上で source ready endpoint が消えるまで |
+| `drain_to_checkpoint_ms` | Service から外す操作を開始してから、checkpoint API が初めて成功するまで |
+| `checkpoint_to_restore_apply_ms` | checkpoint 成功から restore Pod apply 開始まで。restore image build/import を含む |
+| `restore_image_build_import_ms` | checkpoint archive から restore image を作成し、containerd に import するまで |
+| `restore_apply_to_ready_ms` | restore Pod apply 開始から Pod Ready まで |
+| `restore_apply_to_endpointslice_ready_ms` | restore Pod apply 開始から EndpointSlice に restore Pod が `ready=true` で反映されるまで |
+| `restore_ready_to_endpointslice_ready_ms` | restore Pod Ready から EndpointSlice `ready=true` 反映まで |
+| `label_to_service_success_ms` | Service から外す操作を開始してから、Service 経由の新規 HTTP connection が初めて成功するまで |
+| `endpoint_removed_to_service_success_ms` | source ready endpoint が消えてから、Service 経由の新規 HTTP connection が初めて成功するまで |
+| `checkpoint_attempts` | checkpoint 成功までの API 試行回数 |
+
+各 iteration の詳細ログは `logs/measurements/<run_id>/iteration-<N>/` に保存されます。
+
+```text
+events.jsonl         操作・観測イベントの時刻ログ
+pods.txt             iteration 終了時の Pod 状態
+endpointslice.yaml   iteration 終了時の EndpointSlice
+k8s-events.txt       namespace 内 Kubernetes Events
+checkpoint-attempt-* checkpoint API のレスポンス
+```
+
+namespace を作り直さずに現在の状態から測る場合は、次のようにします。
+
+```bash
+./scripts/measure-migration.sh --no-cleanup-before
+```
+
+実験後に namespace も削除する場合は `--cleanup-after` を付けます。
+
+CSV から iteration ごとの stacked timeline graph を `matplotlib` で PNG として作る場合は、次のようにします。
+
+```bash
+./scripts/plot-measurements.py logs/measurements/migration-measurements-<run_id>.csv
+```
+
+出力先や形式を指定する場合は `-o` を使います。拡張子に応じて PNG / SVG / PDF などを出力できます。
+
+```bash
+./scripts/plot-measurements.py \
+  logs/measurements/migration-measurements-<run_id>.csv \
+  -o logs/measurements/migration-measurements-<run_id>.png
+```
+
+---
+
 ## 補足: checkpoint 失敗時の CRIU log 確認
 
 checkpoint が失敗した場合は、CRIU の dump log を確認します。

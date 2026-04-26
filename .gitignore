@@ -1,0 +1,11 @@
+# Local Codex/session files
+.codex
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated measurement artifacts
+logs/measurements/*
+!logs/measurements/*.pdf
+!logs/measurements/*.svg
