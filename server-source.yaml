@@ -19,14 +19,18 @@ spec:
         - |
           cat > /server.py <<'PY'
           import http.server
-          import socketserver
           import os
+          import socketserver
+          import threading
           import time
+          import urllib.parse
 
           START = time.time()
           POD_NAME = os.environ.get("POD_NAME", "unknown")
           POD_IP = os.environ.get("POD_IP", "unknown")
           ROLE = os.environ.get("ROLE", "source")
+          ACTIVE_HOLDS = set()
+          ACTIVE_HOLDS_LOCK = threading.Lock()
 
           class Handler(http.server.BaseHTTPRequestHandler):
               def do_GET(self):
@@ -34,6 +38,37 @@ spec:
                       self.send_response(200)
                       self.end_headers()
                       self.wfile.write(b"ready\n")
+                      return
+
+                  parsed = urllib.parse.urlparse(self.path)
+                  if parsed.path == "/holds":
+                      with ACTIVE_HOLDS_LOCK:
+                          active = len(ACTIVE_HOLDS)
+                      self.send_response(200)
+                      self.end_headers()
+                      self.wfile.write(f"{active}\n".encode())
+                      return
+
+                  if parsed.path == "/hold":
+                      query = urllib.parse.parse_qs(parsed.query)
+                      seconds = int(query.get("seconds", ["60"])[0])
+                      seconds = max(1, min(seconds, 3600))
+                      hold_id = id(self)
+                      with ACTIVE_HOLDS_LOCK:
+                          ACTIVE_HOLDS.add(hold_id)
+                      self.send_response(200)
+                      self.end_headers()
+                      try:
+                          for i in range(seconds):
+                              self.wfile.write(f"holding {i + 1}/{seconds}\n".encode())
+                              self.wfile.flush()
+                              time.sleep(1)
+                          self.wfile.write(b"done\n")
+                      except (BrokenPipeError, ConnectionResetError):
+                          pass
+                      finally:
+                          with ACTIVE_HOLDS_LOCK:
+                              ACTIVE_HOLDS.discard(hold_id)
                       return
 
                   self.send_response(200)
@@ -49,7 +84,11 @@ spec:
               def log_message(self, fmt, *args):
                   return
 
-          with socketserver.TCPServer(("0.0.0.0", 8080), Handler) as httpd:
+          class ThreadingTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+              daemon_threads = True
+              allow_reuse_address = True
+
+          with ThreadingTCPServer(("0.0.0.0", 8080), Handler) as httpd:
               httpd.serve_forever()
           PY
 
