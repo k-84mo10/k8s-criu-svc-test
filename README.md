@@ -305,6 +305,29 @@ CSV から iteration ごとの stacked timeline graph を `matplotlib` で PNG �
 
 ---
 
+## long-lived connection drain 確認実験
+
+Service から source Pod を外しても既存の長寿命 connection が残り、checkpoint が可能になるまで待ちが発生するかを確認する場合は、次のスクリプトを使います。
+
+```bash
+./scripts/check-long-lived-drain.sh --hold-seconds 30 --initial-window-seconds 10
+```
+
+このスクリプトは次の順に動きます。
+
+1. source/client Pod を作成して Ready を待つ
+2. client から Service 経由で `/hold?seconds=N` に接続し、長寿命 HTTP connection を作る
+3. source Pod の `app` label を外し、EndpointSlice から source が消えるまで待つ
+4. connection が残っている間に checkpoint API を複数回試す
+5. client 側の long-lived request を止める
+6. connection が消えた後に checkpoint が成功するか確認する
+
+結果は `logs/long-lived-drain/long-lived-drain-<run_id>.csv` と `logs/long-lived-drain/<run_id>/events.jsonl` に保存されます。
+
+期待される結果は、`pre_release_result=timeout` かつ `post_release` 側の checkpoint が `success` になることです。この場合、Service drain 後も既存 connection が checkpoint を妨げ得ることを示します。
+
+---
+
 ## 補足: checkpoint 失敗時の CRIU log 確認
 
 checkpoint が失敗した場合は、CRIU の dump log を確認します。

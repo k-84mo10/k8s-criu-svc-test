@@ -9,3 +9,4 @@ __pycache__/
 logs/measurements/*
 !logs/measurements/*.pdf
 !logs/measurements/*.svg
+logs/long-lived-drain/
